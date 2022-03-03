@@ -1,0 +1,551 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #febd44;
+  --clr-secondary: #fed789;
+  --clr-accent: #f1c2d0;
+
+  --fc-primary: #3f3f3f;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+body {
+  color: black;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* header */
+
+.main-header {
+  position: relative;
+  background-color: var(--fc-primary);
+  grid-area: header;
+}
+
+.logo {
+  display: inline;
+  margin: 1rem 1rem 1rem 4rem;
+  width: 6rem;
+  height: 6rem;
+}
+
+.top-bar {
+  height: 2.5rem;
+  background-color: rgb(19, 18, 18);
+  margin: 0;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.top-bar h1 {
+  display: inline-block;
+  padding-left: 4rem;
+}
+
+.top-bar a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding-left: 10rem;
+}
+
+nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  background-color: var(--fc-primary);
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+.nav-list {
+  padding: 0 0 2rem 0rem;
+}
+
+.nav__item {
+  padding: 2rem 0 2rem 0;
+  list-style: none;
+}
+
+.nav__item {
+  border-bottom: 0.5px solid rgba(242, 243, 244, 0.1);
+}
+
+.nav-social {
+  padding-left: 2rem;
+}
+
+.nav-social i {
+  color: #fff;
+  font-size: 2rem;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+}
+
+.nav-social a {
+  width: 2rem;
+  opacity: 0;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+.nav__item a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  padding-left: 4rem;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+.nav__item a:hover {
+  color: var(--clr-primary);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 55%;
+  right: 25%;
+}
+
+@media screen and (min-width: 600px) {
+  .nav-toggle-label {
+    position: absolute;
+    top: 55%;
+    right: 15%;
+  }
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background-color: #fff;
+  width: 2rem;
+  height: 2px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+@media screen and (min-width: 850px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  .logo {
+    grid-column: 1 / 2;
+    margin: 1rem 1rem;
+  }
+
+  nav {
+    all: unset;
+    display: flex;
+    grid-column: 3 / 4;
+    font-family: "Josefin Sans", sans-serif;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 12rem;
+    padding: 0;
+  }
+
+  .nav-list a {
+    all: unset;
+    font-size: 1.4rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
+    padding-right: 3rem;
+    cursor: pointer;
+  }
+
+  .nav-list li {
+    border: none;
+  }
+
+  .nav-social {
+    position: absolute;
+    top: 45%;
+    right: 7%;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-social a {
+    all: unset;
+    cursor: pointer;
+  }
+
+  .nav-social i {
+    padding-left: 1rem;
+    font-size: 1.8rem;
+  }
+
+  nav a {
+    opacity: 1;
+  }
+}
+
+/* Grid */
+@media screen and (min-width: 1024px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 50px 500px 400px;
+  }
+}
+
+/* intro */
+
+.intro {
+  padding: 2rem 2rem 4rem 2rem;
+  text-align: center;
+  grid-area: intro;
+}
+
+.intro h2 {
+  margin: 2rem 0;
+  font-size: 2.8rem;
+  font-family: var(--ff-primary);
+}
+
+.intro p {
+  font-size: 1.8rem;
+}
+
+/* call to action */
+
+.CTA-section {
+  background-color: #1b1b1b;
+  padding: 2.5rem;
+  grid-area: sidebar;
+}
+
+.call-to-action h2 {
+  color: #ffffff;
+  text-align: center;
+}
+
+.call-to-action h2::after {
+  content: " ";
+  display: block;
+  background-color: #fff;
+  height: 0.5px;
+  width: 15rem;
+  margin: 1rem auto;
+}
+
+.cta-section__address {
+  color: rgb(160, 158, 158);
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 2rem;
+}
+
+.cta-section__phone {
+  color: rgb(160, 158, 158);
+  text-decoration: none;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.call-to-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn a {
+  color: var(--fc-primary);
+  text-decoration: none;
+}
+
+/* Buttons */
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 40px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1.8rem 4vw;
+  white-space: nowrap;
+  text-align: center;
+  outline: 0;
+  text-transform: uppercase;
+}
+
+.btn--primary {
+  background-color: var(--clr-secondary);
+  color: var(--fc-primary);
+}
+
+button:hover {
+  background-color: var(--clr-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+}
+
+/* Testmonials */
+.testomonial-header {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  grid-area: testmonial;
+}
+
+.review {
+  position: relative;
+  margin: 3.5rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.review--body {
+  padding: 1rem;
+  font-size: 1.4rem;
+  margin-top: 3rem;
+}
+
+.quote-border {
+  position: absolute;
+  top: 33%;
+  left: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--clr-secondary);
+  margin: 1rem 0 1rem 1rem;
+}
+
+.second-review {
+  top: 32%;
+}
+
+.third-review {
+  top: 43%;
+}
+
+.review-img {
+  height: 21rem;
+}
+
+.review--name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.review--name h3::before {
+  display: inline-block;
+  content: " ";
+  width: 5rem;
+  height: 5rem;
+  background-color: #1b1b1b;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .review {
+    margin: 0;
+  }
+
+  .review img {
+    object-fit: cover;
+  }
+
+  .second-review {
+    top: 33%;
+  }
+
+  .third-review {
+    display: none;
+  }
+}
+
+/* Social section */
+.social-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem 0 3rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .social-section {
+    justify-content: flex-start;
+    margin-left: 3rem;
+    grid-area: social-section;
+  }
+
+  .social__reviews--yelp,
+  .social__reviews--facebook,
+  .social__reviews--instagram,
+  .social__reviews--google {
+    margin-left: 1.5rem;
+  }
+}
+
+.social-section i {
+  color: gray;
+  font-size: 3rem;
+  padding: 0rem 2rem;
+}
+
+.social-section a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.social__reviews {
+  padding-left: 3rem;
+  font-size: 1.5rem;
+}
+
+.social__reviews--yelp,
+.social__reviews--facebook,
+.social__reviews--instagram,
+.social__reviews--google {
+  border: 1px solid gray;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+}
+
+.social__reviews--yelp:hover {
+  border: 1px solid #c41200;
+}
+.social__reviews--facebook:hover {
+  border: 1px solid #4267b2;
+}
+.social__reviews--instagram:hover {
+  border: 1px solid #833ab4;
+}
+.social__reviews--google:hover {
+  border: 1px solid #0f9d58;
+}
+
+.social__follow {
+  padding-left: 3rem;
+  font-size: 1.5rem;
+}
+
+.yelp-border:hover {
+  color: #c41200;
+}
+
+.instagram-border:hover {
+  color: #833ab4;
+}
+.facebook-border:hover {
+  color: #4267b2;
+}
+.google-border:hover {
+  color: #0f9d58;
+}
+
+/* footer */
+
+footer {
+  background-color: var(--fc-primary);
+}
+
+footer ul {
+  text-align: center;
+  padding: 2rem 0 2rem 0;
+}
+
+footer li {
+  padding-bottom: 2rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footer-logo {
+  margin: 0 auto;
+  width: 10rem;
+}
+
+footer p {
+  color: #fff;
+  text-align: center;
+  margin-top: 2rem;
+}
